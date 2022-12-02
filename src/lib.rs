@@ -8,7 +8,14 @@ use std::{
 #[derive(Debug)]
 pub enum AocError {
     IoError(io::Error),
+    InputError(InputError),
+}
+
+#[derive(Debug)]
+pub enum InputError {
     ParseIntError(ParseIntError),
+    EmptyInput,
+    InvalidValue,
 }
 
 impl From<io::Error> for AocError {
@@ -17,9 +24,15 @@ impl From<io::Error> for AocError {
     }
 }
 
+impl From<InputError> for AocError {
+    fn from(e: InputError) -> Self {
+        AocError::InputError(e)
+    }
+}
+
 impl From<ParseIntError> for AocError {
     fn from(e: ParseIntError) -> Self {
-        AocError::ParseIntError(e)
+        AocError::InputError(InputError::ParseIntError(e))
     }
 }
 
