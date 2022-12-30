@@ -246,6 +246,8 @@ fn part2(input: &Vec<String>, search_min: i64, search_max: i64) -> Result<i64, D
 mod tests {
     use super::*;
 
+    use aoc::to_lines;
+
     const EXAMPLE: &str = "\
 Sensor at x=2, y=18: closest beacon is at x=-2, y=15
 Sensor at x=9, y=16: closest beacon is at x=10, y=16
@@ -279,7 +281,7 @@ Sensor at x=20, y=1: closest beacon is at x=15, y=3
 
     #[test]
     fn test_boundaries() {
-        let input: Vec<String> = EXAMPLE.lines().map(|s| s.to_owned()).collect();
+        let input = to_lines(EXAMPLE);
         let sensor_reports = parse_sensor_reports(&input).unwrap();
 
         let boundaries = find_boundaries(&sensor_reports).unwrap();
@@ -295,14 +297,14 @@ Sensor at x=20, y=1: closest beacon is at x=15, y=3
 
     #[test]
     fn test_part1() {
-        let input: Vec<String> = EXAMPLE.lines().map(|s| s.to_owned()).collect();
+        let input = to_lines(EXAMPLE);
 
         assert_eq!(part1(&input, 10).unwrap(), 26);
     }
 
     #[test]
     fn test_part2() {
-        let input: Vec<String> = EXAMPLE.lines().map(|s| s.to_owned()).collect();
+        let input = to_lines(EXAMPLE);
 
         assert_eq!(part2(&input, 0, 20).unwrap(), 56000011);
     }

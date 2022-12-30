@@ -478,6 +478,8 @@ fn part2(input: &Vec<String>) -> Result<u64, Day16Error> {
 mod tests {
     use super::*;
 
+    use aoc::to_lines;
+
     const EXAMPLE: &str = "\
 Valve AA has flow rate=0; tunnels lead to valves DD, II, BB
 Valve BB has flow rate=13; tunnels lead to valves CC, AA
@@ -523,7 +525,7 @@ Valve JJ has flow rate=21; tunnel leads to valve II
 
     #[test]
     fn test_shortest_paths() {
-        let input: Vec<String> = EXAMPLE.lines().map(|s| s.to_owned()).collect();
+        let input = to_lines(EXAMPLE);
         let valves = parse_valves(&input).unwrap();
 
         let shortest_paths = all_shortest_paths(&valves);
@@ -546,14 +548,14 @@ Valve JJ has flow rate=21; tunnel leads to valve II
 
     #[test]
     fn test_part1() {
-        let input: Vec<String> = EXAMPLE.lines().map(|s| s.to_owned()).collect();
+        let input = to_lines(EXAMPLE);
 
         assert_eq!(part1(&input).unwrap(), 1651);
     }
 
     #[test]
     fn test_part2() {
-        let input: Vec<String> = EXAMPLE.lines().map(|s| s.to_owned()).collect();
+        let input = to_lines(EXAMPLE);
 
         assert_eq!(part2(&input).unwrap(), 1707);
     }

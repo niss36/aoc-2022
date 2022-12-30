@@ -11,3 +11,7 @@ pub fn read_lines(path: &str) -> io::Result<Vec<String>> {
 
     return reader.lines().collect();
 }
+
+pub fn to_lines(data: &str) -> Vec<String> {
+    data.lines().map(|s| s.to_owned()).collect()
+}

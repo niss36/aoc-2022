@@ -325,20 +325,22 @@ fn part2(input: &Vec<String>) -> Result<u64, Day17Error> {
 mod tests {
     use super::*;
 
+    use aoc::to_lines;
+
     const EXAMPLE: &str = "\
 >>><<><>><<<>><>>><<<>>><<<><<<>><>><<>>
 ";
 
     #[test]
     fn test_part1() {
-        let input: Vec<String> = EXAMPLE.lines().map(|s| s.to_owned()).collect();
+        let input = to_lines(EXAMPLE);
 
         assert_eq!(part1(&input).unwrap(), 3068);
     }
 
     #[test]
     fn test_part2() {
-        let input: Vec<String> = EXAMPLE.lines().map(|s| s.to_owned()).collect();
+        let input = to_lines(EXAMPLE);
 
         assert_eq!(part2(&input).unwrap(), 1514285714288);
     }

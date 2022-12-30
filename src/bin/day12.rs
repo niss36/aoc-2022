@@ -232,6 +232,8 @@ fn part2(input: &Vec<String>) -> Result<usize, Day12Error> {
 mod tests {
     use super::*;
 
+    use aoc::to_lines;
+
     const EXAMPLE: &str = "\
 Sabqponm
 abcryxxl
@@ -242,7 +244,7 @@ abdefghi
 
     #[test]
     fn test_elevation_map_find_start() {
-        let input: Vec<String> = EXAMPLE.lines().map(|s| s.to_owned()).collect();
+        let input = to_lines(EXAMPLE);
 
         let map: ElevationMap = input.as_slice().try_into().unwrap();
 
@@ -251,7 +253,7 @@ abdefghi
 
     #[test]
     fn test_elevation_map_find_end() {
-        let input: Vec<String> = EXAMPLE.lines().map(|s| s.to_owned()).collect();
+        let input = to_lines(EXAMPLE);
 
         let map: ElevationMap = input.as_slice().try_into().unwrap();
 
@@ -260,14 +262,14 @@ abdefghi
 
     #[test]
     fn test_part1() {
-        let input: Vec<String> = EXAMPLE.lines().map(|s| s.to_owned()).collect();
+        let input = to_lines(EXAMPLE);
 
         assert_eq!(part1(&input).unwrap(), 31);
     }
 
     #[test]
     fn test_part2() {
-        let input: Vec<String> = EXAMPLE.lines().map(|s| s.to_owned()).collect();
+        let input = to_lines(EXAMPLE);
 
         assert_eq!(part2(&input).unwrap(), 29);
     }

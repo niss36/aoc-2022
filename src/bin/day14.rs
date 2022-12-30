@@ -392,6 +392,8 @@ fn part2(input: &Vec<String>) -> Result<usize, Day14Error> {
 mod tests {
     use super::*;
 
+    use aoc::to_lines;
+
     const EXAMPLE: &str = "\
 498,4 -> 498,6 -> 496,6
 503,4 -> 502,4 -> 502,9 -> 494,9
@@ -427,7 +429,7 @@ mod tests {
     fn test_parse_cave() {
         use TileContents::*;
 
-        let input: Vec<String> = EXAMPLE.lines().map(|s| s.to_owned()).collect();
+        let input = to_lines(EXAMPLE);
 
         let expected = Cave {
             left: 494,
@@ -450,14 +452,14 @@ mod tests {
 
     #[test]
     fn test_part1() {
-        let input: Vec<String> = EXAMPLE.lines().map(|s| s.to_owned()).collect();
+        let input = to_lines(EXAMPLE);
 
         assert_eq!(part1(&input).unwrap(), 24);
     }
 
     #[test]
     fn test_part2() {
-        let input: Vec<String> = EXAMPLE.lines().map(|s| s.to_owned()).collect();
+        let input = to_lines(EXAMPLE);
 
         assert_eq!(part2(&input).unwrap(), 93);
     }

@@ -36,6 +36,8 @@ fn part2(input: &Vec<String>) -> Result<usize, Day0Error> {
 mod tests {
     use super::*;
 
+    use aoc::to_lines;
+
     // Make sure to remove any extra indentation (otherwise it will be part of the string)
     const EXAMPLE: &str = "\
 ABCD
@@ -43,14 +45,14 @@ ABCD
 
     #[test]
     fn test_part1() {
-        let input: Vec<String> = EXAMPLE.lines().map(|s| s.to_owned()).collect();
+        let input = to_lines(EXAMPLE);
 
         assert_eq!(part1(&input).unwrap(), todo!());
     }
 
     #[test]
     fn test_part2() {
-        let input: Vec<String> = EXAMPLE.lines().map(|s| s.to_owned()).collect();
+        let input = to_lines(EXAMPLE);
 
         assert_eq!(part2(&input).unwrap(), todo!());
     }
