@@ -25,11 +25,11 @@ fn main() -> Result<(), Day0Error> {
 }
 
 fn part1(input: &Vec<String>) -> Result<usize, Day0Error> {
-    Ok(0)
+    todo!()
 }
 
 fn part2(input: &Vec<String>) -> Result<usize, Day0Error> {
-    Ok(0)
+    todo!()
 }
 
 #[cfg(test)]
@@ -45,13 +45,13 @@ ABCD
     fn test_part1() {
         let input: Vec<String> = EXAMPLE.lines().map(|s| s.to_owned()).collect();
 
-        assert_eq!(part1(&input).unwrap(), 42);
+        assert_eq!(part1(&input).unwrap(), todo!());
     }
 
     #[test]
     fn test_part2() {
         let input: Vec<String> = EXAMPLE.lines().map(|s| s.to_owned()).collect();
 
-        assert_eq!(part2(&input).unwrap(), 42);
+        assert_eq!(part2(&input).unwrap(), todo!());
     }
 }
